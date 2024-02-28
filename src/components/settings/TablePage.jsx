@@ -8,12 +8,6 @@ const TablePage = () => {
     const inputRef = useRef(null);
     const [newApartment, setNewApartment] = useState("");
 
-    let cellStyle = {
-        padding: '0 10px',
-        textAlign: 'center',
-        border: '1px solid #000000'
-    };
-
     const rows = [
         { criterion: 'Fasilitas pendukung', field: 'fasilitas' },
         { criterion: 'Harga bangunan / m2', field: 'harga' },
@@ -62,9 +56,9 @@ const TablePage = () => {
             <table>
                 <thead>
                 <tr>
-                    <th style={cellStyle}>Kriteria</th>
+                    <th>Kriteria</th>
                     {alternativeData.map((data, index) =>
-                        <th style={cellStyle} key={index}>
+                        <th key={index}>
                             {data.name}
                             <button onClick={() => handleRemoveApartment(index)} className={"ml-2 text-red-400"}>-</button>
                         </th>
@@ -74,14 +68,14 @@ const TablePage = () => {
                 <tbody>
                 {rows.map((row, index) => (
                     <tr key={index}>
-                        <td style={cellStyle}>{row.criterion}</td>
+                        <td>{row.criterion}</td>
                         {alternativeData.map((data, dataIndex) =>
                             dataIndex === editingCell.rowIndex && row.field === editingCell.columnName ?
-                                <td style={cellStyle} key={dataIndex} ref={inputRef}>
+                                <td key={dataIndex} ref={inputRef}>
                                     <input value={data[row.field]} onChange={event => handleCellValueChange(event, dataIndex, row.field)} onBlur={() => setEditingCell({ rowIndex: null, columnName: null })} />
                                 </td>
                             :
-                                <td style={cellStyle} key={dataIndex} onClick={() => handleEditStart(dataIndex, row.field)}>{data[row.field]}</td>
+                                <td key={dataIndex} onClick={() => handleEditStart(dataIndex, row.field)}>{data[row.field]}</td>
                         )}
                     </tr>
                 ))}

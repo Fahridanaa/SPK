@@ -1,27 +1,30 @@
-import {useContext, useEffect} from "react";
+import {useContext} from "react";
 import {ValueContext} from "../../App.jsx";
+import '../../styles/table.css'
 
 const Ranking = () => {
-    const {WPMResult, WSMResult} = useContext(ValueContext);
+    const {ranking} = useContext(ValueContext);
 
     return (
         <table>
             <thead>
                 <tr>
-                    <th>No</th>
+                    <th>Rank</th>
                     <th>Nama</th>
                     <th>WPM</th>
                     <th>WSM</th>
-                    <th>Ranking</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>coba</td>
-                    <td>{WPMResult[0].result}</td>
-                    <td>{WSMResult[0].result}</td>
-                </tr>
+                {ranking.map((res) => (
+                    <tr key={res.rank}>
+                        <td>{res.rank}</td>
+                        <td>{res.name}</td>
+                        <td>{res.WPM}</td>
+                        <td>{res.WSM}</td>
+                    </tr>
+                ))
+                }
             </tbody>
         </table>
     )

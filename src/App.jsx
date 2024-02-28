@@ -91,18 +91,37 @@ function App() {
             return {...data, result};
         })
 
-
         setWPMResult(WPMMultiple);
         setWSMResult(WSMSum);
 
+        const results = WPMMultiple.map((data, index) => {
+            return {
+                name: data.name,
+                WSM: WSMSum[index].result,
+                WPM: data.result,
+                rank: index + 1
+            }
+        });
+
+        const sortedResults = results.sort((a, b) =>
+            b.WPM - a.WPM || b.WSM - a.WSM
+        ).map((result, index) => ({
+            ...result,
+            rank: index + 1
+        }));
+
+        setRanking(sortedResults);
+
     }, [alternativeData, criteriaData]);
+
+    console.log(ranking)
 
     return (
         <Router>
             <div className={"flex min-h-screen"}>
                 <main className="flex flex-grow">
                     <SettingsContext.Provider value={{ criteriaData, alternativeData, setCriteriaData, setAlternativeData }}>
-                        <ValueContext.Provider value={{WPMResult, WSMResult}}>
+                        <ValueContext.Provider value={{WPMResult, WSMResult, ranking}}>
                             <Routes>
                                 <Route path="/" element={<HomePage/>}/>
                                 <Route path="/result" element={<ResultPage/>}/>

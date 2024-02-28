@@ -5,12 +5,6 @@ import {SettingsContext} from "../../App.jsx";
 const CriteriaPage = () => {
     const { criteriaData, setCriteriaData } = useContext(SettingsContext);
 
-    let cellStyle = {
-        padding: '0 10px',
-        textAlign: 'center',
-        border: '1px solid #000000'
-    };
-
     const handleInputChange = (index, type) => {
         setCriteriaData(criteriaData.map((criteria, i) => {
             if(i === index) {
@@ -46,25 +40,25 @@ const CriteriaPage = () => {
                 <table>
                     <thead>
                     <tr>
-                        <th style={cellStyle}>Kriteria</th>
-                        <th style={cellStyle}>Bobot</th>
-                        <th style={cellStyle}>Benefit</th>
-                        <th style={cellStyle}>Cost</th>
+                        <th>Kriteria</th>
+                        <th>Bobot</th>
+                        <th>Benefit</th>
+                        <th>Cost</th>
                     </tr>
                     </thead>
                     <tbody>
                     {criteriaData.map((criteria, index) => {
                         return (
                             <tr key={index}>
-                                <td style={cellStyle}>{criteria.name}</td>
-                                <td style={cellStyle}>
+                                <td>{criteria.name}</td>
+                                <td>
                                     <input
                                         type="number"
                                         value={criteria.weight}
                                         onChange={(event) => handleWeightChange(index, event)}
                                     />
                                 </td>
-                                <td style={cellStyle}>
+                                <td>
                                     <input
                                         type="radio"
                                         name={criteria.name}
@@ -72,7 +66,7 @@ const CriteriaPage = () => {
                                         onChange={() => handleInputChange(index, 'benefit')}
                                     />
                                 </td>
-                                <td style={cellStyle}>
+                                <td>
                                     <input
                                         type="radio"
                                         name={criteria.name}
