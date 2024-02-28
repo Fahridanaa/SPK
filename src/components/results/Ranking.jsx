@@ -16,8 +16,8 @@ const Ranking = () => {
                 </tr>
             </thead>
             <tbody>
-                {ranking.map((res) => (
-                    <tr key={res.rank}>
+                {ranking.map((res,index) => (
+                    <tr key={`rank-${index}`}>
                         <td>{res.rank}</td>
                         <td>{res.name}</td>
                         <td>{res.WPM}</td>

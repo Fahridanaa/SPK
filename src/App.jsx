@@ -19,9 +19,9 @@ function App() {
     ]);
 
     const [alternativeData, setAlternativeData] = useState([
-        {code: 'A1', name: 'Apartemen 1', fasilitas: 2, harga: 7000000, tahun: 2012, jarak: 7, keamanan: 3},
-        {code: 'A2', name: 'Apartemen 2', fasilitas: 4, harga: 10000000, tahun: 2015, jarak: 2, keamanan: 3},
-        {code: 'A3', name: 'Apartemen 3', fasilitas: 3, harga: 8500000, tahun: 2010, jarak: 4, keamanan: 4},
+        {name: 'Apartemen 1', fasilitas: 2, harga: 7000000, tahun: 2012, jarak: 7, keamanan: 3},
+        {name: 'Apartemen 2', fasilitas: 4, harga: 10000000, tahun: 2015, jarak: 2, keamanan: 3},
+        {name: 'Apartemen 3', fasilitas: 3, harga: 8500000, tahun: 2010, jarak: 4, keamanan: 4},
     ])
 
     const [WPMResult, setWPMResult] = useState([]);

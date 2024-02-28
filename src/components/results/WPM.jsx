@@ -23,9 +23,9 @@ const WPM = () => {
             </thead>
             <tbody>
             {Array.isArray(WPMResult) ?
-                WPMResult.map((data) => (
-                    <tr key={data.code}>
-                        <td>{data.code}</td>
+                WPMResult.map((data, index) => (
+                    <tr key={`A${index+1}`}>
+                        <td>{`A${index+1}`}</td>
                         <td>{data.fasilitas}</td>
                         <td>{data.harga}</td>
                         <td>{data.tahun}</td>
@@ -44,4 +44,5 @@ const WPM = () => {
     )
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export default WPM;

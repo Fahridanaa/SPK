@@ -23,9 +23,9 @@ const WSM = () => {
             </thead>
             <tbody>
             {Array.isArray(WSMResult) ? (
-                WSMResult.map((data) => (
-                    <tr key={data.code}>
-                        <td>{data.code}</td>
+                WSMResult.map((data, index) => (
+                    <tr key={`A${index+1}`}>
+                        <td>{`A${index+1}`}</td>
                         <td>{data.fasilitas}</td>
                         <td>{data.harga}</td>
                         <td>{data.tahun}</td>
